@@ -1,0 +1,19 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  role_name: tower_install
+  author: Markus Rainer
+  description: Ansible Tower install
+  company: Red Hat
+  min_ansible_version: 2.9
+  license: MIT
+
+  platforms: 
+    - name: EL
+      versions:
+        - 7
+        - 8
+
+  galaxy_tags: [tower, ansible, demo, lab]

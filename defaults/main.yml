@@ -1,0 +1,48 @@
+---
+# defaults file for ansible-tower-install
+
+tower_install: true
+tower_license: true
+tower_customize: true
+tower_venv: true
+
+tower_backup: false
+tower_restore: false
+tower_upgrade: false
+tower_rhel_subscription: true
+
+tower_setup_version: 3.7.4-1
+tower_setup_dir: "/opt"
+# this must not be 'latest'
+tower_upgrade_version: 3.7.4-1
+
+# rhel, centos
+tower_os_type: rhel
+
+tower_pem_key_name: ""
+tower_pem_key_location: ""
+tower_pem_key: ""
+
+tower_setup_admin_password: "toweradmin"
+tower_setup_pg_database: "tower"
+tower_setup_pg_username: "tower"
+tower_setup_pg_password: "tower"
+tower_setup_rabbitmq_pass: "tower"
+
+tower_rhel_org_id: undefined
+tower_rhel_activation_key: rhel
+tower_redhat_username: rh_user 
+tower_redhat_password: changeme
+
+tower_license_date: 000000000
+tower_license_key: 01010101
+
+tower_local_backup_file: ./files/tower-backup-latest.tar.gz
+tower_backup_file: /tmp/tower-backup-restore-ansible.tar.gz
+tower_backup_dest: /tmp/
+
+tower_github_personal_access_token: ""
+tower_github_token: ""
+
+aws_f5_license: ""
+aws_f5_password: ""
