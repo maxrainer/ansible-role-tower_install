@@ -44,3 +44,4 @@
     file: upgrade.yml
   when: tower_upgrade
   tags: [always, install]
+
