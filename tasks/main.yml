@@ -44,18 +44,3 @@
     file: upgrade.yml
   when: tower_upgrade
   tags: [always, install]
-
-- include_tasks: 
-    file: venv.yml
-    apply:
-      tags: [always] 
-  when: tower_venv
-  tags: [always, install, customize]
-
-- name: customize tower
-  include_tasks: 
-    file: customize.yml
-    apply:
-      tags: [always]
-  when: tower_customize
-  tags: [always, customize]
