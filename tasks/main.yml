@@ -13,35 +13,35 @@
   include_tasks: 
     file: rhel.yml
   when: tower_os_type == 'rhel' and tower_install
-  tags: [always, install]
+  tags: [rhel]
 
 - include_tasks: 
     file: centos.yml
   when: tower_os_type == 'centos' and tower_install
-  tags: [always, install]
+  tags: [centos]
 
 - include_tasks:
     file: install.yml
   when: tower_install
-  tags: [always, install]
+  tags: [install]
 
 - include_tasks:
     file: restore.yml
   when: tower_restore
-  tags: [always, install]
+  tags: [restore]
 
 - include_tasks: 
     file: license.yml
   when: tower_license
-  tags: [always, install]
+  tags: [install]
 
 - include_tasks:
     file: backup.yml
   when: tower_upgrade or tower_backup
-  tags: [always, install]
+  tags: [backup]
 
 - include_tasks:
     file: upgrade.yml
   when: tower_upgrade
-  tags: [always, install]
+  tags: [upgrade]
 
