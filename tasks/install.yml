@@ -7,6 +7,7 @@
     name: 
       - ansible
       - ansible-tower-cli
+  tags: install
 
 - name: "download tower version: {{ tower_setup_version }} to server"
   unarchive:
@@ -15,8 +16,7 @@
     creates: "{{ tower_setup_dir }}/ansible-tower-setup-{{ tower_setup_version }}"
     remote_src: true
   become: true
-  tags:
-    - tower
+  tags: [tower, install]
 
 - name: local ansible inventory file
   become: true
@@ -26,7 +26,6 @@
     dest: "{{ tower_setup_dir }}/ansible-tower-setup-{{ tower_setup_version }}/inventory"
   notify: "setup_tower"
   register: inventory_config
-  tags: 
-    - tower
+  tags: [tower, install]
 
 - meta: flush_handlers

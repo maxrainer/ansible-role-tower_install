@@ -11,7 +11,7 @@
     validate_certs: no
     force_basic_auth: yes
     body: "{{ lookup('template', '../templates/license.j2') }}"
-  tags: [tower, license, rest]
+  tags: [tower, license, rest, install]
 
 - name: set RH username for license
   tower_settings:
@@ -21,7 +21,7 @@
     validate_certs: no
     name: REDHAT_USERNAME
     value: "{{ tower_redhat_username }}"
-  tags: [tower, license]
+  tags: [tower, license, install]
 
 - name: set RH password for license
   tower_settings:
@@ -31,4 +31,4 @@
     validate_certs: no
     name: REDHAT_PASSWORD
     value: "{{ tower_redhat_password }}"
-  tags: [tower, license]
+  tags: [tower, license, install]
