@@ -1,0 +1,32 @@
+---
+# enable nginx webservice on tower for local reporting
+
+- name: check listen 81 in nxginx conf
+  lineinfile: 
+    path: /etc/nginx/nginx.conf
+    line: "\t{ listen 81;"
+    state: present
+  check_mode: yes
+  become: true
+  register: _listen81
+  tags: [reports]
+
+- name: add port to nginx.conf
+  lineinfile:
+    path: /etc/nginx/nginx.conf
+    backup: yes
+    line: "\tserver\n\t{ listen 81;\n\troot /opt/reports;\n\tlocation / {\n\t}\n\t}"
+    insertbefore: "^}$"
+  become: true
+  notify: restart nginx
+  when: _listen81.changed
+  tags: [reports]
+
+- name: add port 81 to firewall config
+  firewalld:
+    port: 81/tcp
+    state: enabled
+    permanent: true
+    immediate: true
+  become: true
+  tags: [reports]

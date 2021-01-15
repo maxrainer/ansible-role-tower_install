@@ -5,7 +5,7 @@
   become: true
   pip: 
     name: 
-      - ansible
+      - ansible=2.9.16
       - ansible-tower-cli
   tags: install
 

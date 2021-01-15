@@ -45,3 +45,7 @@
 #  when: tower_upgrade
   tags: [upgrade]
 
+- include_tasks:
+    file: reports.yml
+  tags: [reports]
+

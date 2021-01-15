@@ -3,13 +3,13 @@
 
 tower_install: true
 tower_license: true
-tower_customize: true
-tower_venv: true
+#tower_customize: true
+#tower_venv: true
 
 tower_backup: false
 tower_restore: false
 tower_upgrade: false
-tower_rhel_subscription: true
+tower_rhel_subscription: false
 
 tower_setup_version: 3.7.4-1
 tower_setup_dir: "/opt"
